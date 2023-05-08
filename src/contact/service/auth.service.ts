@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException, Res, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  Res,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { ContactService } from './contact.service';
@@ -15,7 +20,7 @@ import { UpdateUserDto } from '../dto/update.Dto';
 export class AuthService {
   constructor(
     @InjectRepository(User)
-    private readonly userRepository:Repository<User>,
+    private readonly userRepository: Repository<User>,
     private readonly jwtService: JwtService,
   ) {}
 
@@ -49,7 +54,7 @@ export class AuthService {
       createUser.password = await this.hashPassword(user.password);
       const newUser = await this.userRepository.save(createUser);
       delete newUser.password;
-      return newUser;
+      return { message: `${newUser.fullName} sucessfully registered` };
     } else {
       throw new UnauthorizedException(`User already Exist`);
     }
@@ -90,5 +95,4 @@ export class AuthService {
 
     return { message: 'Contact updated' };
   }
-
 }
