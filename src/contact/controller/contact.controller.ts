@@ -9,7 +9,6 @@ import {
   Query,
 } from '@nestjs/common';
 import { ContactService } from '../service/contact.service';
-import { UpdateUserDto } from '../dto/update.Dto';
 import { Contact } from '../entities/contact';
 import { Pagination } from 'nestjs-typeorm-paginate';
 import { AddContactDto } from '../dto/addContact.dto';

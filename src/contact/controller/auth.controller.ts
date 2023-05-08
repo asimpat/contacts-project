@@ -1,7 +1,6 @@
 import {
   Body,
   Controller,
-  Get,
   Param,
   ParseIntPipe,
   Post,
@@ -10,7 +9,6 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { UserDto } from '../dto/register.dto';
-import { ContactService } from '../service/contact.service';
 import { Contact } from '../entities/contact';
 import { LoginDto } from '../dto/login.Dto';
 import { AuthService } from '../service/auth.service';
@@ -19,9 +17,7 @@ import { UpdateUserDto } from '../dto/update.Dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   // register user
   @Post('register')
@@ -38,7 +34,6 @@ export class AuthController {
   ): any {
     return this.authService.loginUser(user, response);
   }
-
 
   // user update Contact
   @Post(':id')

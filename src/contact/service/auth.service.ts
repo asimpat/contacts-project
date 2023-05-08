@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { ContactService } from './contact.service';
 import { Contact } from '../entities/contact';
 import { LoginDto } from '../dto/login.Dto';
 import { Response } from 'express';
