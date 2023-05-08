@@ -1,6 +1,4 @@
-import {
-  Injectable,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Contact } from '../entities/contact';
 import { Repository } from 'typeorm';
@@ -17,7 +15,6 @@ export class ContactService {
     @InjectRepository(Contact)
     private readonly contactRepository: Repository<Contact>,
   ) {}
-
 
   // get user by Id
   async getUser(id: number) {
